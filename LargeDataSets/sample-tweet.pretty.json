@@ -1,0 +1,116 @@
+{
+	"_id" : ObjectId("51cb05769e04d78d170a35b1"),
+	"contributors" : null,
+	"truncated" : false,
+	"text" : "The Supreme Court had made history today by striking down DOMA.",
+	"in_reply_to_status_id" : null,
+	"random_number" : 0.615393727476686,
+	"id" : NumberLong("349908667803512837"),
+	"favorite_count" : 0,
+	"source" : "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>",
+	"retweeted" : false,
+	"coordinates" : {
+		"type" : "Point",
+		"coordinates" : [
+			-81.45778282,
+			31.80923197
+		]
+	},
+	"entities" : {
+		"symbols" : [ ],
+		"user_mentions" : [ ],
+		"hashtags" : [ ],
+		"urls" : [ ]
+	},
+	"in_reply_to_screen_name" : null,
+	"id_str" : "349908667803512837",
+	"retweet_count" : 0,
+	"in_reply_to_user_id" : null,
+	"favorited" : false,
+	"user" : {
+		"follow_request_sent" : null,
+		"profile_use_background_image" : true,
+		"default_profile_image" : false,
+		"id" : 610332445,
+		"verified" : false,
+		"profile_image_url_https" : "https://si0.twimg.com/profile_images/378800000026094653/14a137083ed78d22a015c318e850f5e7_normal.jpeg",
+		"profile_sidebar_fill_color" : "DDEEF6",
+		"profile_text_color" : "333333",
+		"followers_count" : 96,
+		"profile_sidebar_border_color" : "C0DEED",
+		"id_str" : "610332445",
+		"profile_background_color" : "C0DEED",
+		"listed_count" : 0,
+		"profile_background_image_url_https" : "https://si0.twimg.com/images/themes/theme1/bg.png",
+		"utc_offset" : -18000,
+		"statuses_count" : 381,
+		"description" : "If you are not 1st you are last.",
+		"friends_count" : 59,
+		"location" : "Hinesville, Ga",
+		"profile_link_color" : "0084B4",
+		"profile_image_url" : "http://a0.twimg.com/profile_images/378800000026094653/14a137083ed78d22a015c318e850f5e7_normal.jpeg",
+		"following" : null,
+		"geo_enabled" : true,
+		"profile_background_image_url" : "http://a0.twimg.com/images/themes/theme1/bg.png",
+		"name" : "Donnie Pulliam",
+		"lang" : "en",
+		"profile_background_tile" : false,
+		"favourites_count" : 70,
+		"screen_name" : "donniepull",
+		"notifications" : null,
+		"url" : null,
+		"created_at" : "Sat Jun 16 22:41:05 +0000 2012",
+		"contributors_enabled" : false,
+		"time_zone" : "Eastern Time (US & Canada)",
+		"protected" : false,
+		"default_profile" : true,
+		"is_translator" : false
+	},
+	"geo" : {
+		"type" : "Point",
+		"coordinates" : [
+			31.80923197,
+			-81.45778282
+		]
+	},
+	"in_reply_to_user_id_str" : null,
+	"lang" : "en",
+	"created_at" : "Wed Jun 26 15:15:02 +0000 2013",
+	"filter_level" : "medium",
+	"in_reply_to_status_id_str" : null,
+	"place" : {
+		"full_name" : "Midway, GA",
+		"url" : "http://api.twitter.com/1/geo/id/609b34f49e484521.json",
+		"country" : "United States",
+		"place_type" : "city",
+		"bounding_box" : {
+			"type" : "Polygon",
+			"coordinates" : [
+				[
+					[
+						-81.473313,
+						31.775926
+					],
+					[
+						-81.473313,
+						31.819769
+					],
+					[
+						-81.373235,
+						31.819769
+					],
+					[
+						-81.373235,
+						31.775926
+					]
+				]
+			]
+		},
+		"country_code" : "US",
+		"attributes" : {
+			
+		},
+		"id" : "609b34f49e484521",
+		"name" : "Midway"
+	}
+}
