@@ -1,0 +1,48 @@
+Basic commands to access a mongodb database (10/01/2013)
+
+For each command, I will give an explanation and general form, followed by a specific example
+(unless there is no form and the command simply requires you to type something and hit enter).
+NOTE: this means you should only execute the SECOND command in an example, not the first.
+
+1. Connect to the database server
+
+mongo HOSTNAME:PORT
+mongo smapp.politics.fas.nyu.edu:27011
+
+NOTE to WINDOWS users: there is a way to add the mongo program to your "path" (so that it can be
+run from anywhere on your command prompt). I'll write about this soon. For now, use the full path
+to the mongo program:
+
+C:\mongodb-2.4.6\bin\mongo HOSTNAME:PORT
+
+
+2. Connect to a specific database on the server
+
+mongo HOSTNAME:PORT/DATABASE
+mongo smapp.politics.fas.nyu.edu:27011/Syria
+
+
+Once connected, these command may be executed in the mongo "shell" (the '>' prompt you'll see)
+
+3. See what database you're currently "using"
+
+db
+
+4. Change your active database
+
+use DATABASE
+use test
+
+5. Authorize yourself ("log in") so you can see collections of data
+
+db.auth("USERNAME", "PASSWORD")
+db.auth("readonly", "<super secret password here>")
+
+6. See what collections (sets of data) are in the database
+
+show collections
+
+7. Count the number of items in a collection
+
+db.COLLECTION.count()
+db.sample_data.count()
