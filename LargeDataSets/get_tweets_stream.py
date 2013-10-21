@@ -70,8 +70,7 @@ class StdOutListener(tweepy.streaming.StreamListener):
         print_tweet(status)
 
         # Dump tweet to file (assuming you have a handle open somewhere...)
-        #from bson.json_util import dumps
-        #handle.write(dumps(tweet))
+        # from bson.json_util import dumps; handle.write(dumps(tweet))
 
         # Push to a database? Yes.
 
@@ -83,6 +82,7 @@ class StdOutListener(tweepy.streaming.StreamListener):
 
     def on_disconnect(self, notice):
         print "-!- Disconnect recvd from Twitter. Reason: {0}".format(notice['reason'])
+        return False
 
 
 def print_tweet(tweet):
@@ -97,12 +97,12 @@ def print_tweet(tweet):
 
 
 if __name__ == "__main__":
-    # Create an instance of the Listener object
-    listener = StdOutListener()
-
     # Create an instance of the AuthHandler object
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
     auth.set_access_token(access_token, access_secret)
+
+    # Create an instance of the Listener object
+    listener = StdOutListener()
  
     # Create an instance of a twitter Stream (what actually pulls data in). Pass it your auth
     # and listener objects (listener will be given the incoming stream the data)

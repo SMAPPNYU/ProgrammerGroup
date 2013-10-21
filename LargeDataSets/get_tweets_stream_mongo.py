@@ -26,7 +26,7 @@ access_secret = "G2fEkbsUYZNG65toB3FeS2kIndXpXKhf7uTFAldhDE"
 host = "localhost"                  # host = "smapp.politics.fas.nyu.edu"
 port = 27017                        # port = 27011
 database = "LargeDataSets"          # database = "test"     user = "dpb"
-collection = "manu_tweets"          # collection = "lds"    password = "<Super Secret>"
+collection = "manu_tweets"          # collection = "lds"    password = "<Super Secret Password>"
 
 
 class ToMongoListener(tweepy.streaming.StreamListener):
@@ -85,6 +85,7 @@ class ToMongoListener(tweepy.streaming.StreamListener):
 
     def on_disconnect(self, notice):
         print "-!- Disconnect recvd from Twitter. Reason: {0}".format(notice['reason'])
+        return False
 
 
 def print_tweet(tweet):
@@ -99,12 +100,12 @@ def print_tweet(tweet):
 
 
 if __name__ == "__main__":
-    # Create an instance of the Listener object
-    listener = ToMongoListener()
-
     # Create an instance of the AuthHandler object
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
     auth.set_access_token(access_token, access_secret)
+
+    # Create an instance of the Listener object
+    listener = ToMongoListener()
  
     # Create an instance of a twitter Stream (what actually pulls data in). Pass it your auth
     # and listener objects (listener will be given the incoming stream the data)

@@ -51,18 +51,15 @@ class Tweet2Mongo():
     def add_tweet(self, tweet):
         """Takes a json tweet object, adds it to the instance's database and collection"""
         if not self.connected:
-            raise Exception("Database not connected. Call 'connect(user, pwd)' first")
+            raise Exception("Database not connected. Call 'connect([user], [pwd])' first")
 
         # Basic, basic tweet integrity check. Something more sophisticated is better
-        if 'created_at' not in tweet and 'id_str' not in tweet:
+        if 'created_at' not in tweet or 'id_str' not in tweet:
             raise Exception("Tweet {0} not valid".format(tweet))
 
         # Add the tweet to the collection via collection handler. Can use 'save' or 'insert' 
         # (see docs for difference: http://docs.mongodb.org/manual/reference/method/db.collection.insert/)
         self.colh.insert(tweet, safe=True)
-
-
-
 
 
 

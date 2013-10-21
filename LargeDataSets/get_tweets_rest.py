@@ -31,8 +31,8 @@ api = tweepy.API(auth)
 
 
 # Grab a "cursor" of data - much like an iterator. Pass the API call type you want to Cursor(...)
-# Then can "iterate" over the search results, paging handled for you
-search_cursor = tweepy.Cursor(api.search, q="tottenham OR arsenal", rpp=100, include_entities=True, lang="en")
+# Then can "iterate" over the search results, paging handled for you. Pass cursor other api call params
+search_cursor = tweepy.Cursor(api.search, q="tottenham OR arsenal", include_entities=True, lang="en")
 
 # Can also 'limit' results by passing an int to items()
 for tweet in search_cursor.items(10):
@@ -41,9 +41,9 @@ for tweet in search_cursor.items(10):
                                           tweet.user.screen_name.encode('utf-8'), 
                                           tweet.text.encode('utf-8'))
 
-    # Store them in a database? Yes. Sort of (need to get raw data from REST API)
+    # Write to file? Maybe. Write a CSV, raw json, custom json, etc.
+    # Store them in a database? Yes. Sort of (need to get raw data from REST API).
 
 print "\n---Completed fetching tweets---\n"
-
 
 
