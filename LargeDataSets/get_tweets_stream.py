@@ -14,9 +14,8 @@ Good tutorial                       http://www.pythoncentral.io/introduction-to-
 @date 10/20/2013
 """
 
-import simplejson as json
 import tweepy
-from tweepy.streaming import StreamListener
+import simplejson as json
 
 
 # Go to http://dev.twitter.com and create an app.
@@ -30,7 +29,7 @@ access_token = "1650976376-pmDLQDvy1icJJLVQrT88usDGxkAMaugnDxQefz0"
 access_secret = "G2fEkbsUYZNG65toB3FeS2kIndXpXKhf7uTFAldhDE"
 
 
-class StdOutListener(StreamListener):
+class StdOutListener(tweepy.streaming.StreamListener):
     """
     A basic listener class that inherits from Tweepy's StreamListener.
     

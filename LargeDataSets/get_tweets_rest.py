@@ -36,9 +36,12 @@ search_cursor = tweepy.Cursor(api.search, q="tottenham OR arsenal", rpp=100, inc
 
 # Can also 'limit' results by passing an int to items()
 for tweet in search_cursor.items(10):
+    # Print them!
     print "<Tweet: {0}\t{1}\t{2}>".format(tweet.created_at, 
                                           tweet.user.screen_name.encode('utf-8'), 
                                           tweet.text.encode('utf-8'))
+
+    # Store them in a database? Yes. Sort of (need to get raw data from REST API)
 
 print "\n---Completed fetching tweets---\n"
 
