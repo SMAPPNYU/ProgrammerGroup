@@ -23,12 +23,10 @@ access_token = "1650976376-pmDLQDvy1icJJLVQrT88usDGxkAMaugnDxQefz0"
 access_secret = "G2fEkbsUYZNG65toB3FeS2kIndXpXKhf7uTFAldhDE"
 
 # For now, simple global DB variables
-host = "smapp.politics.fas.nyu.edu"
-port = 27011
-database = "test"
-collection = "lds"
-user = "dpb"
-password = "<Super secret password here>"
+host = "localhost"
+port = 27017
+database = "LargeDataSets"
+collection = "manu_tweets"
 
 
 class ToMongoListener(tweepy.streaming.StreamListener):
@@ -41,7 +39,7 @@ class ToMongoListener(tweepy.streaming.StreamListener):
         super(tweepy.StreamListener, self).__init__()
 
         self.db = Tweet2Mongo(host, port, database, collection)
-        if not self.db.connect(user, password):
+        if not self.db.connect():
             raise Exception("Failed to initiate database connection, exiting")
 
     def on_connect(self):

@@ -19,9 +19,6 @@ class Tweet2Mongo():
     """
 
     def __init__(self, host, port, database, collection):
-        """
-        Store variables
-        """
         self.host = host
         self.port = int(port)
         self.database = database
@@ -32,7 +29,7 @@ class Tweet2Mongo():
         self.colh = None
         self.connected = False
 
-    def connect(self, user, password):
+    def connect(self, user=None, password=None):
         """Connect to a MongoDB instance"""
         if self.connected:
             return True
@@ -41,9 +38,12 @@ class Tweet2Mongo():
         self.client = MongoClient(self.host, self.port)
         self.dbh = self.client[self.database]
 
-        if not self.dbh.authenticate(user, password):
-            return False
+        # If a username and password are provided, authenticate
+        if user and password:
+            if not self.dbh.authenticate(user, password):
+                return False
         
+        # Store a handle to the Database collection to store to and return status
         self.colh = self.dbh[self.collection]
         self.connected = True
         return self.connected
@@ -54,7 +54,7 @@ class Tweet2Mongo():
             raise Exception("Database not connected. Call 'connect(user, pwd)' first")
 
         # Basic, basic tweet integrity check. Something more sophisticated is better
-        if 'created_at' not in tweet:
+        if 'created_at' not in tweet and 'id_str' not in tweet:
             raise Exception("Tweet {0} not valid".format(tweet))
 
         # Add the tweet to the collection via collection handler. Can use 'save' or 'insert' 
