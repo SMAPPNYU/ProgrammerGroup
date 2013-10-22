@@ -17,10 +17,10 @@ import simplejson as json
 from tweet2mongo import Tweet2Mongo
 
 # Set up twitter authentication. Go to http://dev.twitter.com and create an app, etc.
-consumer_key = "fay80GlqqPtNNyGgnwkYw"
-consumer_secret = "zgbLl2DQU8HXMpUEdNj5rphN3ogDSL1xFxVtW8Kns"
-access_token = "1650976376-pmDLQDvy1icJJLVQrT88usDGxkAMaugnDxQefz0"
-access_secret = "G2fEkbsUYZNG65toB3FeS2kIndXpXKhf7uTFAldhDE"
+consumer_key = "YOUR CONSUMER KEY"
+consumer_secret = "YOUR CONSUMER SECRET"
+access_token = "YOUR ACCESS TOKEN"
+access_secret = "YOUR ACCESS TOKEN SECRET"
 
 # For now, simple global DB variables
 host = "localhost"                  # host = "smapp.politics.fas.nyu.edu"

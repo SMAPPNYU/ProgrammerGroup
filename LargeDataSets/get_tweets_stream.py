@@ -20,13 +20,13 @@ import simplejson as json
 
 # Go to http://dev.twitter.com and create an app.
 # The consumer key and secret will be generated for you after
-consumer_key = "fay80GlqqPtNNyGgnwkYw"
-consumer_secret = "zgbLl2DQU8HXMpUEdNj5rphN3ogDSL1xFxVtW8Kns"
+consumer_key = "YOUR CONSUMER KEY"
+consumer_secret = "YOUR CONSUMER SECRET"
 
 # After the step above, you will be redirected to your app's page.
 # Create an access token under the the "Your access token" section
-access_token = "1650976376-pmDLQDvy1icJJLVQrT88usDGxkAMaugnDxQefz0"
-access_secret = "G2fEkbsUYZNG65toB3FeS2kIndXpXKhf7uTFAldhDE"
+access_token = "YOUR ACCESS TOKEN"
+access_secret = "YOUR ACCESS TOKEN SECRET"
 
 
 class StdOutListener(tweepy.streaming.StreamListener):

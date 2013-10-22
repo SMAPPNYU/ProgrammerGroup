@@ -18,10 +18,10 @@ import tweepy
 
 # Authorization keys. Always use OAuth! (Also, can fetch the access token in code if you want)
 # To make: go to dev.twitter.com, log in, create an "application", and request an access token
-consumer_key = "fay80GlqqPtNNyGgnwkYw"
-consumer_secret = "zgbLl2DQU8HXMpUEdNj5rphN3ogDSL1xFxVtW8Kns"
-access_token = "1650976376-pmDLQDvy1icJJLVQrT88usDGxkAMaugnDxQefz0"
-access_secret = "G2fEkbsUYZNG65toB3FeS2kIndXpXKhf7uTFAldhDE"
+consumer_key = "YOUR CONSUMER KEY"
+consumer_secret = "YOUR CONSUMER SECRET"
+access_token = "YOUR ACCESS TOKEN"
+access_secret = "YOUR ACCESS TOKEN SECRET"
 
 
 # Set up OAuth via tweepy's handler object, and create an instance of the Tweepy API with auth
