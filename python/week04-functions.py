@@ -24,6 +24,7 @@ def write_csv(tweets, filename):
     """
     handle = open(filename, 'w')
     handle.write("USER,DATE,TWEET\n")
+
     for tweet in tweets:
         handle.write("{0},{1},{2}\n".format(
             tweet['user']['screen_name'].encode('utf-8'), 
