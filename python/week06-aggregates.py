@@ -35,7 +35,7 @@ usleg_db.authenticate("readonly", "smappnyu")
 
 # Create datetime objects to represent start and end of range of interest
 start = datetime(2013, 8, 30)
-end = datetime(2013, 9, 5)
+end = datetime(2013, 9, 6)
 
 # Find tweets of interest in the database
 tweets = usleg_db.legislator_tweets.find({ 
@@ -126,12 +126,14 @@ for day in daily_sentiment.keys():
 	avg_sentiment = daily_sentiment[day] / tweets_per_day[day]
 	sentiment_averages.append(avg_sentiment)
 
-plt.title("Sentiment per Day of US-Syria Crisis")
-plt.xlabel("Day (8/31-9/05)")
-plt.ylabel("Sum of Sentiment")
+plt.title("Sentiment per Day of US-Syria Amongst US Legislators")
+plt.xticks(day_list, ("8/30", "8/31", "9/01", "9/02", "9/03", "9/04", "9/05"))
+plt.xlabel("Day")
+plt.ylabel("Average Sentiment [-5 negative to 5 positive]")
 
+plt.plot(day_list, sentiment_averages, 'ko')
 plt.plot(day_list, sentiment_averages, 'm-', linewidth=2.0, 
-	label="Legislator Sentiment")
+	label="Legislator Sentiment (-5 neg, 5 pos)")
 
 plt.legend(loc='upper left')
 plt.savefig("usleg-syria-sentiment.png")
