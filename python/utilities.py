@@ -2,6 +2,33 @@
 Programmer Group utility functions
 """
 
+
+def is_retweet(tweet):
+    """Takes a python-native tweet obect (a dict). Returns True if a tweet is any kind of retweet"""
+    import re
+    
+    # Define manual retweet patterns
+    rt_manual_pattern = r"^RT @"
+    rt_partial_pattern = r" RT @"
+
+    if 'retweeted_status' in tweet:
+        return True
+    elif re.search(rt_manual_pattern, tweet['text'].encode('utf-8')):
+        return True
+    elif re.search(rt_partial_pattern, tweet['text'].encode('utf-8')):
+        return True
+    return False
+
+
+def print_tweet_extras(tweet, score, retweet):
+    print "{0}\t{1}\t{2}\t{3}\t{4}".format(
+        tweet['user']['screen_name'].encode('utf-8'), 
+        tweet['created_at'],
+        score,
+        retweet,
+        tweet['text'].encode('utf-8'))
+
+
 def write_csv(tweets, filename):
     """
     A function that takes a collection of tweets and writes all to file.
