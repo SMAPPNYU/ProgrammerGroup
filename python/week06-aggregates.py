@@ -54,6 +54,7 @@ print "Found {0} tweets from US Legislators on Syria from {1} to {2}".format(
 
 num_tweets = 0
 num_retweets = 0
+total_tweets = 0
 daily_sentiment = {}
 tweets_per_day = {}
 
@@ -68,6 +69,7 @@ for tweet in tweets:
 		num_retweets += 1
 	else:
 		num_tweets += 1
+	total_tweets += 1
 
 	# Get sentiment score from DSTK. Note: doing in a "try-catch" block (so if it fails,
 	# our program will not break. Instead, we print the error and move on)
@@ -126,14 +128,14 @@ for day in daily_sentiment.keys():
 	avg_sentiment = daily_sentiment[day] / tweets_per_day[day]
 	sentiment_averages.append(avg_sentiment)
 
-plt.title("Sentiment per Day of US-Syria Amongst US Legislators")
+plt.title("Sentiment per Day of US-Syria")
 plt.xticks(day_list, ("8/30", "8/31", "9/01", "9/02", "9/03", "9/04", "9/05"))
 plt.xlabel("Day")
 plt.ylabel("Average Sentiment [-5 negative to 5 positive]")
 
 plt.plot(day_list, sentiment_averages, 'ko')
 plt.plot(day_list, sentiment_averages, 'm-', linewidth=2.0, 
-	label="Legislator Sentiment (-5 neg, 5 pos)")
+	label="Legislator Sentiment")
 
 plt.legend(loc='upper left')
 plt.savefig("usleg-syria-sentiment.png")
