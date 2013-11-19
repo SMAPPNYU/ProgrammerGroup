@@ -37,7 +37,7 @@ def write_csv(tweets, filename):
         filename    - A string representing the file to write to (eg: "legislator-tweets.csv")
     NOTE: There will be problems here. When? EG: when tweet 'text' contains a comma. Others?
     """
-    handle = open(filename, 'w')
+    handle = open(filename, "w")
     handle.write("USER,DATE,TWEET\n")
 
     for tweet in tweets:
@@ -45,7 +45,7 @@ def write_csv(tweets, filename):
         filestring = "{0},{1},{2}\n".format( 
             tweet['user']['screen_name'].encode('utf-8'),
             tweet['created_at'],
-            tweet['text'].encode('utf-8').replace(",", "")
+            tweet['text'].encode('utf-8').replace(",", "").replace("\n", " ")
             )
         handle.write(filestring)
     handle.close()
