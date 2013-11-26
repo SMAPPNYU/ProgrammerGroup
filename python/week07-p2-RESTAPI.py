@@ -29,7 +29,7 @@ import tweepy
 # First, open CSV file and read lines from it. Each line (except first) represents one
 # tweet. Store user screen name info, and how many times each occurs.
 # NOTE AGAIN that there is a library to do this sort of stuff for you. Can use it.
-handle = open("/home/dpb/Desktop/usleg-syria-intervene.csv")
+handle = open("usleg-syria-intervene.csv")
 tweets_per_user = {}
 
 # .next() gets a single line from the open file. Takes it away from the file (the next
@@ -56,6 +56,8 @@ for line in handle:
 		tweets_per_user[user] += 1
 	else:
 		tweets_per_user[user] = 1
+handle.close()
+
 
 # Sort command to find user with most tweets
 sorted_users = sorted(tweets_per_user.items(), key=lambda u: u[1], reverse=True)
@@ -66,10 +68,10 @@ print "The most active user in the set is {0}, with {1} tweets".format(
 
 
 # Twitter API Authentication configuration
-consumer_key = "YOUR CONSUMER KEY"
-consumer_secret = "YOUR CONSUMER SECRET"
-access_token = "YOUR ACCESS TOKEN"
-access_secret = "YOUR ACCESS TOKEN SECRET"
+consumer_key = "fay80GlqqPtNNyGgnwkYw"
+consumer_secret = "zgbLl2DQU8HXMpUEdNj5rphN3ogDSL1xFxVtW8Kns"
+access_token = "1650976376-pmDLQDvy1icJJLVQrT88usDGxkAMaugnDxQefz0"
+access_secret = "G2fEkbsUYZNG65toB3FeS2kIndXpXKhf7uTFAldhDE"
 
 # Set up OAuth via tweepy's handler object, and create an instance of the Tweepy API 
 # with authorization just created
@@ -82,14 +84,18 @@ api = tweepy.API(auth)
 # cursor other api call parameters (user id, etc. See twitter user timeline docs for
 # more)
 cursor = tweepy.Cursor(api.user_timeline, id=most_active_user[0])
-backtweets = 2
+backtweets = 2000
 
 print "last {0} tweets from {1}:".format(backtweets, most_active_user[0])
 
 for tweet in cursor.items(backtweets):
-	print "{0}".format(tweet.text)
+	print "{0}".format(tweet.text.encode('utf-8'))
 
 # Can we get his/her tweets from a certain time period? Ref: twitter docs!
 # https://dev.twitter.com/docs/api/1.1/get/statuses/user_timeline
 # (No. But, since id?)
 # ((sneaky...))
+
+
+
+

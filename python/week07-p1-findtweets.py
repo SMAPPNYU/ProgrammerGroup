@@ -30,7 +30,7 @@ client = MongoClient("smapp.politics.fas.nyu.edu", 27011)
 usleg_db = client["US_LEGISLATOR"]
 usleg_db.authenticate("readonly", "smappnyu")
 
-# Query for tweets - more complex than we're used to. ANDing.
+# Query for tweets - more complex than we're used to. Using AND.
 # (NOTE that mongo explicitly ANDs multiple comma-separated search clauses, 
 # however, if two clauses on the same field with the same operator, must use $and)
 start = datetime(2013, 8, 21)
@@ -47,6 +47,13 @@ results = usleg_db.legislator_tweets.find({
 print "Found {0} tweets on topic. Writing to CSV file".format(
 	results.count(with_limit_and_skip=True))
 
-write_csv(results, "/home/dpb/Desktop/usleg-syria-intervene.csv")
+write_csv(results, "usleg-syria-intervene.csv")
+
+
+
+
+
+
+
 
 
