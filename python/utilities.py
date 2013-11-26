@@ -20,6 +20,15 @@ def is_retweet(tweet):
     return False
 
 
+def print_tweet(tweet):
+    """A function to print a tweet in a nice way"""
+    # Don't forget to 'encode' tweet values that might have non-standard characters (text, username)
+    print "{0}\t{1}\t{2}".format(
+        tweet['user']['screen_name'].encode('utf-8'), 
+        tweet['created_at'], 
+        tweet['text'].encode('utf-8'))
+
+
 def print_tweet_extras(tweet, score, retweet):
     print "{0}\t{1}\t{2}\t{3}\t{4}".format(
         tweet['user']['screen_name'].encode('utf-8'), 
@@ -51,10 +60,4 @@ def write_csv(tweets, filename):
     handle.close()
 
 
-def print_tweet(tweet):
-    """A function to print a tweet in a nice way"""
-    # Don't forget to 'encode' tweet values that might have non-standard characters (text, username)
-    print "{0}\t{1}\t{2}".format(
-        tweet['user']['screen_name'].encode('utf-8'), 
-        tweet['created_at'], 
-        tweet['text'].encode('utf-8'))
+
