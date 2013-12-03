@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Programming Group week 08 - Python streaming collector
 
@@ -116,24 +117,28 @@ if __name__ == "__main__":
 
     # Go to http://dev.twitter.com and create an app.
     # The consumer key and secret will be generated for you (paste below)
-    consumer_key = "YOUR_CONSUMER_KEY"
-    consumer_secret = "YOUR_CONSUMER_SECRET"
+    consumer_key = "fay80GlqqPtNNyGgnwkYw"
+    consumer_secret = "zgbLl2DQU8HXMpUEdNj5rphN3ogDSL1xFxVtW8Kns"
 
     # Create an access token under the the "Your access token" section.
     # Refresh the app page to get the access token values (paste below)
-    access_token = "YOUR_ACCESS_TOKEN"
-    access_secret = "YOUR_ACCESS_SECRET"
+    access_token = "1650976376-pmDLQDvy1icJJLVQrT88usDGxkAMaugnDxQefz0"
+    access_secret = "G2fEkbsUYZNG65toB3FeS2kIndXpXKhf7uTFAldhDE"
 
     # Create a tweepy Authorization object with your twitter keys
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
     auth.set_access_token(access_token, access_secret)
 
     # Create a listener object, to capture tweets and write them to a file
-    listener = FileOutListener(filename="Tweets.json.txt")
+    listener = FileOutListener(filename="UkraineGeoTweets.json.txt")
  
     # Create an object representing the Twitter "stream." Must provide it with your
     # authorization object and listener objects.
     stream = tweepy.Stream(auth, listener)
+
+    # Filter based on Ukraine protest keywords, get geocoded tweets only!
+    keywords = ["ukraine", "Україна", "euromaidan", "євромайдан", "Евромайдан"]
+    stream.filter(track=keywords)
 
 
     # Call the Stream filter. Can filter on users ('follow'), keywords ('track'), and 
@@ -141,8 +146,8 @@ if __name__ == "__main__":
     # together. EXAMPLES:
 
     # Create a list of keyword terms, call Stream filter with track
-    keywords = ["iran", "irandeal", "iran deal" "iran nuclear deal", "nuke deal", "nuclear deal"]
-    stream.filter(track=keywords, languages=["en"])
+    #keywords = ["iran", "irandeal", "iran deal" "iran nuclear deal", "nuke deal", "nuclear deal"]
+    #stream.filter(track=keywords, languages=["en"])
 
     # Create a list of users (IDs, NOT screennames), call Stream filter with follow
     # reppaulryan   18916432    
@@ -164,4 +169,6 @@ if __name__ == "__main__":
 
     # Filter on both keywords and locations. Remember, they are OR-joined (keywords or locs)
     #stream.filter(track=keywords, locations=locs)
+
+
 
