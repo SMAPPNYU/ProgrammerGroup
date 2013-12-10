@@ -6,23 +6,6 @@ Programmer Group utility functions
 """
 
 
-def is_retweet(tweet):
-    """Takes a python-native tweet obect (a dict). Returns True if a tweet is any kind of retweet"""
-    import re
-    
-    # Define manual retweet patterns
-    rt_manual_pattern = r"^RT @"
-    rt_partial_pattern = r" RT @"
-
-    if 'retweeted_status' in tweet:
-        return True
-    elif re.search(rt_manual_pattern, tweet['text'].encode('utf-8')):
-        return True
-    elif re.search(rt_partial_pattern, tweet['text'].encode('utf-8')):
-        return True
-    return False
-
-
 def print_tweet(tweet):
     """A pretty-print function for tweet display"""
     if tweet['place'] != None:
