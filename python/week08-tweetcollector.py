@@ -34,6 +34,8 @@ import tweepy
 import simplejson as json
 from bson.json_util import dumps
 
+from utilities import print_tweet
+
 class FileOutListener(tweepy.streaming.StreamListener):
     """
     A basic listener class that inherits from Tweepy's StreamListener.
@@ -81,7 +83,10 @@ class FileOutListener(tweepy.streaming.StreamListener):
     def on_status(self, status):
         """Status is a tweet. Do something with it"""
         # Print tweet
-        print_tweet(status)
+        try:
+            print_tweet(status)
+        except Exception as e:
+            print "Failed to print tweet. Error: {0}".format(e)
 
         # Dump tweet to file
         self.outhandle.write(dumps(status) + "\n")
@@ -94,23 +99,7 @@ class FileOutListener(tweepy.streaming.StreamListener):
 
     def on_disconnect(self, notice):
         print "-!- Disconnect recvd from Twitter. Reason: {0}".format(notice['reason'])
-        return False
-
-
-def print_tweet(tweet):
-    if tweet['place'] != None:
-        print "<Tweet: {0} | {1} | {2} | {3} | {4}>".format(
-            tweet['id'], 
-            tweet['created_at'],
-            tweet['user']['screen_name'].encode('utf-8'), 
-            tweet['place']['full_name'],
-            tweet['text'].encode('utf-8'))
-    else:
-        print "<Tweet: {0} | {1} | {2} | {3}>".format(
-            tweet['id'], 
-            tweet['created_at'],
-            tweet['user']['screen_name'].encode('utf-8'), 
-            tweet['text'].encode('utf-8'))  
+        return False  
 
 
 if __name__ == "__main__":
