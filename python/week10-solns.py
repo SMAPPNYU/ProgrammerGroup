@@ -25,13 +25,14 @@ How to make networks? Python has an incredible library: networkx
 from utilities import jsonfile2tweets
 
 tweetfile = "./data/ukraine_geo_1000.json.txt"
+#tweetfile = "./data/ua-500-rts.json.txt"
 tweets = jsonfile2tweets(tweetfile)
 print "Read {0} tweets from file {1}".format(len(tweets), tweetfile)
+#tweets = tweets[:50]
 
 
 # 2 & 3 - Go over all tweets, checking on only retweets. Save retweeters and retweeted
 # as users, and also a list of retweets, (retweeter, retweeted)
-
 from retweet_util import is_retweet, get_user_retweeted
 
 users_set = set()      # A set is just a unique list (no duplication)
@@ -96,7 +97,7 @@ print "\nRetweet Edges: {0}".format(DG.edges(data=True))
 # 6 - Network properties?
 print "\nOrder (number of nodes): {0}\n".format(DG.order())
 print "Size (number of edges): {0}\n".format(DG.size())
-print "Diameter: {0}\n".format(nx.diameter(DG))
+#print "Diameter: {0}\n".format(nx.diameter(DG))
 
 print "In-degrees: {0}\n".format(DG.in_degree())
 print "Out-degrees: {0}\n".format(DG.out_degree())
@@ -104,7 +105,6 @@ print "Out-degrees: {0}\n".format(DG.out_degree())
 print "Connected components: {0}\n".format(nx.number_connected_components(DG.to_undirected()))
 
 print "In-Degree Centralities: {0}\n".format(nx.in_degree_centrality(DG))
-print "Betweenness Centralities: {0}\n".format(nx.betweenness_centrality(DG, normalized=True, weight="weight"))
 
 
 # 5 - Visualize? I have a function...
