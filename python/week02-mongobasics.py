@@ -25,13 +25,13 @@ def print_tweet(tweet):
 
 
 # Database variables
-host = "smapp.politics.fas.nyu.edu"
+host = "HOSTNAME"
 port = 27011
 database_name = "test"
 collection_name = "sample_tweets"
 
 # Start a Mongo client
-client = MongoClient("smapp.politics.fas.nyu.edu", 27011)   # With literal values (not saved)
+client = MongoClient("HOST", "PORT")   # With literal values (not saved)
 client = MongoClient(host, port)                            # With variables (stored)
 
 # Use a database (all equivalent!)
