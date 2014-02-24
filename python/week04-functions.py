@@ -45,9 +45,9 @@ def print_tweet(tweet):
 ## Outside of functions:
 
 # Access the database
-client = MongoClient("smapp.politics.fas.nyu.edu", 27011)
-database = client["US_LEGISLATOR"]
-database.authenticate("readonly", "smappnyu")
+client = MongoClient("HOSTNAME", "PORT")
+database = client["DB"]
+database.authenticate("USERNAME", "PASSWORD")
 collection = database["legislator_tweets"]
 
 # Create a start and end date
