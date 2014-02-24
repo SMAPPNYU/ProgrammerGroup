@@ -29,9 +29,9 @@ from utilities import is_retweet, print_tweet_extras
 
 
 # Start database client, connect to Syria DB, and authenticate
-client = MongoClient("smapp.politics.fas.nyu.edu", 27011)
-usleg_db = client["US_LEGISLATOR"]
-usleg_db.authenticate("readonly", "smappnyu")
+client = MongoClient("HOSTNAME", PORT)
+usleg_db = client["DATABASE"]
+usleg_db.authenticate("USERNAME", "PASSWORD")
 
 # Create datetime objects to represent start and end of range of interest
 start = datetime(2013, 8, 30)
