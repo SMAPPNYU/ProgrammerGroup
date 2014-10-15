@@ -69,6 +69,3 @@ for t in win_tweets:
     print_tweet(t)
 print "\n---\n"
 
-
-
-

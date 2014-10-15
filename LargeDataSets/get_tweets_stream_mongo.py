@@ -113,12 +113,5 @@ if __name__ == "__main__":
 
     # Call the stream filter. Can filter on users ('follow' param), keywords ('track'), and locations
     # Can use any combinations of those three params. Considered 'OR'ed together
-    stream.filter(track=["manchester united", "MUFC", "manutd" "moyes"], languages=["en"])
-
-
-
-
-
-
-
+    stream.filter(track=["manchester united", "MUFC", "manutd" "van gaal"], languages=["en"])
 
